@@ -1,0 +1,19 @@
+{
+  "name": "properJSONify",
+  "version": "0.0.1",
+  "description": "Camelcaseify object keys",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "João Jerónimo",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "deep-freeze": "^0.0.1",
+    "mocha": "^3.1.2"
+  }
+}
