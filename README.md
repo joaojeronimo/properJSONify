@@ -11,7 +11,7 @@ use `properJSONify`.
 ## Installation
 
 ```bash
-yarn install properJSONify
+yarn add properJSONify
 ```
 
 ## Example
