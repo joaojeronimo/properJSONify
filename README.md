@@ -8,6 +8,12 @@ More often than not you'll have to work with a service that outputs `{ "ThingsLi
 or `{ "things_like": "this" }` or even god forbid `{ "things.like": "this" }`. When that happens,
 use `properJSONify`.
 
+## Installation
+
+```bash
+yarn install properJSONify
+```
+
 ## Example
 
 ```javascript
