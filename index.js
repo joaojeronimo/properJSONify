@@ -1,6 +1,6 @@
 const camelCase = require('camelcase');
 
-function properJSONify(obj, keyTransform) {
+function properJSONify(obj, keyTransform, customKeySort) {
   if (typeof obj !== 'object') {
     return obj;
   }
@@ -19,7 +19,7 @@ function properJSONify(obj, keyTransform) {
     keyTransform = camelCase;
   }
 
-  const keys = Object.keys(obj);
+  const keys = Object.keys(obj).sort(customKeySort).reverse();
   var n = keys.length;
   while(n--) {
     const key = keys[n];

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joaojeronimo/properJSONify.svg?branch=master)](https://travis-ci.org/joaojeronimo/properJSONify)
 
-Goes through a javascript object (recursively) and transforms every key into it's `camelCase` version.
+Goes through a javascript object (recursively) and transforms every key into it's `camelCase` version (also takes a custom key transformation function), and sorts keys alphabetically (also takes a custom compare function).
 
 More often than not you'll have to work with a service that outputs `{ "ThingsLike": "this" }`
 or `{ "things_like": "this" }` or even god forbid `{ "things.like": "this" }`. When that happens,
@@ -12,6 +12,12 @@ use `properJSONify`.
 
 ```bash
 yarn add properJSONify
+```
+
+## API
+
+```javascript
+properJSONify(obj: object | array, customKeyTransform: function, customSortCompare: function)
 ```
 
 ## Example
@@ -48,6 +54,19 @@ properJSONify({ a: 1 }, key => `_${key}`);
 /*
   Output:
   { _a: 1 }
+*/
+```
+
+## Custom key sorting
+
+By default `properJSONify` will sort object keys alphabetically,
+but you can also use a custom sort function that will be passed to the normal [array sort method](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/sort):
+
+```javascript
+properJSONify({ z: 1, y: 2 }, null, (a, b) => 1);
+/*
+  Output:
+  { y: 2, z: 1 }
 */
 ```
 

@@ -146,3 +146,51 @@ describe('key collision', () => {
     });
   });
 });
+
+describe('key sort', () => {
+  it('works recursively in objects', () => {
+    const sorted = JSON.stringify({
+      a: {
+        d: 2,
+        e: 1,
+      },
+      b:2,
+      c:1,
+    });
+    const unSorted = JSON.stringify(properJSONify({
+      c:1,
+      b:2,
+      a: {
+        e: 1,
+        d: 2,
+      },
+    }));
+    expect(sorted).to.equal(unSorted);
+  });
+
+  it('works recursively in arrays', () => {
+    const sorted = JSON.stringify([
+      1,
+      {
+        a: {
+          d: 2,
+          e: 1,
+        },
+        b:2,
+        c:1,
+      }
+    ]);
+    const unSorted = JSON.stringify(properJSONify([
+      1,
+      {
+        c:1,
+        b:2,
+        a: {
+          e: 1,
+          d: 2,
+        },
+      }
+    ]));
+    expect(sorted).to.equal(unSorted);
+  })
+});
